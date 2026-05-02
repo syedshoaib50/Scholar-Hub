@@ -95,3 +95,5 @@ Open: http://127.0.0.1:8000
 | GET | /classes/{id}/edit | Show edit form |
 | PUT | /classes/{id} | Update class |
 | DELETE | /classes/{id} | Delete class |
+
+<img width="1526" height="740" alt="Screenshot 2026-05-03 043439" src="https://github.com/user-attachments/assets/e9dca3cb-b4dc-4c57-9900-632d22d57aca" />
