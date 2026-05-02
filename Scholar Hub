@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scholar Hub - Student Directory</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f1ec;
+}
+
+/* HEADER */
+.header {
+    background: linear-gradient(90deg, #000, #3a2a10);
+    color: #fff;
+    padding: 20px 40px;
+}
+
+.header h1 {
+    margin: 0;
+    font-weight: 300;
+}
+
+.header span {
+    color: #d4a24c;
+}
+
+/* SECTION TITLE */
+.title-section {
+    padding: 30px 40px;
+    color: #fff;
+    background: linear-gradient(90deg, #000, #3a2a10);
+}
+
+.title-section h2 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.title-section h2 span {
+    color: #d4a24c;
+}
+
+/* CARDS */
+.cards {
+    display: flex;
+    gap: 20px;
+    padding: 20px 40px;
+}
+
+.card {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid #d4a24c;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card h4 {
+    margin: 0;
+    color: #666;
+}
+
+.card h2 {
+    margin: 10px 0 0;
+}
+
+/* TABLE */
+.container {
+    padding: 20px 40px;
+}
+
+.table-box {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.table-header {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    background: #d4a24c;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #b88a3d;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #000;
+    color: #fff;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.tag {
+    background: #cfe5d6;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+.action-btn {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.edit {
+    background: #eee;
+}
+
+.delete {
+    background: #ffdddd;
+    color: red;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background: #000;
+    color: #fff;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .cards {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <h1><span>Scholar</span> Hub</h1>
+</div>
+
+<!-- TITLE -->
+<div class="title-section">
+    <h2>Student <span>Directory</span></h2>
+    <p>Manage all enrolled students and their class assignments</p>
+</div>
+
+<!-- CARDS -->
+<div class="cards">
+    <div class="card">
+        <h4>Total Students</h4>
+        <h2 id="totalStudents">3</h2>
+    </div>
+    <div class="card">
+        <h4>Classes Covered</h4>
+        <h2>1</h2>
+    </div>
+</div>
+
+<!-- TABLE -->
+<div class="container">
+    <div class="table-box">
+        
+        <div class="table-header">
+            <h3>All Students</h3>
+            <button class="btn" onclick="addStudent()">+ Add Student</button>
+        </div>
+
+        <table id="studentTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Class</th>
+                    <th>Enrolled</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Syed Muhammad Shoaib Mehdi</td>
+                    <td>wxyz@gmail.com</td>
+                    <td><span class="tag">Web Development</span></td>
+                    <td>May 02, 2026</td>
+                    <td>
+                        <button class="action-btn edit">Edit</button>
+                        <button class="action-btn delete" onclick="deleteRow(this)">Delete</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>Hassan Sharafat</td>
+                    <td>abcde@gmail.com</td>
+                    <td><span class="tag">Web Development</span></td>
+                    <td>Apr 16, 2026</td>
+                    <td>
+                        <button class="action-btn edit">Edit</button>
+                        <button class="action-btn delete" onclick="deleteRow(this)">Delete</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>Saad Ahmad</td>
+                    <td>abc@gmail.com</td>
+                    <td><span class="tag">Web Development</span></td>
+                    <td>Apr 11, 2026</td>
+                    <td>
+                        <button class="action-btn edit">Edit</button>
+                        <button class="action-btn delete" onclick="deleteRow(this)">Delete</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    © 2026 ScholarHub — School Management System → Syed Shoaib
+</div>
+
+<!-- JAVASCRIPT -->
+<script>
+function deleteRow(btn) {
+    let row = btn.parentNode.parentNode;
+    row.remove();
+    updateCount();
+}
+
+function addStudent() {
+    let name = prompt("Enter Name:");
+    let email = prompt("Enter Email:");
+
+    if(name && email){
+        let table = document.getElementById("studentTable").getElementsByTagName('tbody')[0];
+        let rowCount = table.rows.length + 1;
+
+        let row = table.insertRow();
+
+        row.innerHTML = `
+            <td>${rowCount}</td>
+            <td>${name}</td>
+            <td>${email}</td>
+            <td><span class="tag">Web Development</span></td>
+            <td>${new Date().toDateString()}</td>
+            <td>
+                <button class="action-btn edit">Edit</button>
+                <button class="action-btn delete" onclick="deleteRow(this)">Delete</button>
+            </td>
+        `;
+
+        updateCount();
+    }
+}
+
+function updateCount(){
+    let count = document.getElementById("studentTable").rows.length - 1;
+    document.getElementById("totalStudents").innerText = count;
+}
+</script>
+
+</body>
+</html>
